@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Categories from './Categories';
+import { Switch, Route } from 'react-router-dom';
+import Joke from './Joke';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="title">
+        <h1>CHUCK NORRIS JOKE GENERATOR</h1>
+        <img 
+          src="https://images.fineartamerica.com/images-medium-large/chuck-norris-i-counted-to-infinity-twice-yvan-goudard.jpg"
+          width="200px"
+          height="200px"
+        />
+      </div>
+      <Switch>
+        <Route
+          exact path='/'
+          component={Categories}
+        />
+        <Route 
+          path='/:category'
+          component={Joke}
+        />
+      </Switch>
     </div>
   );
 }
